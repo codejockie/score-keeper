@@ -8,28 +8,40 @@ export default class Player extends Component {
     const { player } = this.props;
 
     return (
-      <p key={player._id}>
-        {player.name} has {player.score} points(s).
-        <button
-          onClick={() => {
-            Players.update(player._id, {$inc: {score: 1}})
-          }}
-        >
-          +1
-        </button>
-        <button
-          onClick={() => {
-            Players.update(player._id, {$inc: {score: -1}})
-          }}
-        >
-          -1
-        </button>
-        <button
-          onClick={() => Players.remove(player._id)}
-        >
-          X
-        </button>
-      </p>
+      <div key={player._id} className="item">
+        <div className="player">
+          <div>
+            <h3 className="player__name">{player.name}</h3>
+            <p className="player__stats">
+              {player.score} points(s).
+            </p>
+          </div>
+          <div className="player__actions">
+            <button
+              className="button button--round"
+              onClick={() => {
+                Players.update(player._id, {$inc: {score: 1}})
+              }}
+            >
+              +1
+            </button>
+            <button
+              className="button button--round"
+              onClick={() => {
+                Players.update(player._id, {$inc: {score: -1}})
+              }}
+            >
+              -1
+            </button>
+            <button
+              className="button button--round"
+              onClick={() => Players.remove(player._id)}
+            >
+              X
+            </button>
+          </div>
+        </div>
+      </div>
     )
   }
 }

@@ -11,9 +11,11 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <TitleBar title={title} />
-        <PlayerList players={players} />
-        <AddPlayer />
+        <TitleBar title={title} subtitle="Created by Kennedy" />
+        <div className="wrapper">
+          <PlayerList players={players} />
+          <AddPlayer />
+        </div>
       </div>
     )
   }

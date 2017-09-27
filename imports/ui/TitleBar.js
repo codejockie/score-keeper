@@ -6,16 +6,18 @@ export default class TitleBar extends Component {
     const { subtitle } = this.props;
 
     if (subtitle) {
-      return <em>{subtitle}</em>;
+      return <em className="title-bar__subtitle">{subtitle}</em>;
     }
   }
   render() {
     const { title } = this.props;
 
     return (
-      <div>
-        <h1>{title}</h1>
-        {this.renderSubtitle()}
+      <div className="title-bar">
+        <div className="wrapper">
+          <h1>{title}</h1>
+          {this.renderSubtitle()}
+        </div>
       </div>
     )
   }
