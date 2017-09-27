@@ -8,7 +8,9 @@ import App from '../imports/ui/App';
 
 Meteor.startup(function () {
   Tracker.autorun(() => {
-    const players = Players.find().fetch();
+    const players = Players
+      .find({}, { sort: { score: -1, name: 1 }})
+      .fetch();
     const title = 'Score Keep';
 
     ReactDOM.render(
